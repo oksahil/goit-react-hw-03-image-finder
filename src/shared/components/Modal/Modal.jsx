@@ -7,8 +7,17 @@ const modalRoot = document.querySelector("#modal-root");
 console.log(modalRoot);
 
 class Modal extends Component {
-    closeModal = ({ target, currentTarget }) => {
-        if (target === currentTarget) {
+
+    componentDidMount() {
+        document.addEventListener("keydown", this.closeModal)
+}
+
+    componentWillUnmount() {
+       document.removeEventListener("keydown", this.closeModal)
+   }
+    
+    closeModal = ({ target, currentTarget, code }) => {
+        if (target === currentTarget || code === "Escape") {
             this.props.close()
         }
     }
