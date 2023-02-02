@@ -8,16 +8,17 @@ class PostFindForm extends Component {
         find: "",
     }
 
-    handleChange = ({ target }) => {
-        const { name, value } = target;
-        this.setState({ [name]: value });
+    handleChange = ({ prevState, target }) => {
+        const { name, value} = target;
+            this.setState({ [name]: value });
+
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const {onSubmit} = this.props;
+        const { onSubmit } = this.props;
         onSubmit({...this.state});
-        this.reset()
+        // this.reset()
     }
 
     reset(){
