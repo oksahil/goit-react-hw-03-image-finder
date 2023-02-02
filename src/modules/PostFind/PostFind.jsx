@@ -46,8 +46,10 @@ class PostFind extends Component {
             }    
 }
 
-    searchPost = ({ find}) => {
-               this.setState({ find, items: [], page: 1 });
+    searchPost = ({ find }) => {
+        if (find !== this.state.find) {
+            this.setState({ find, items: [], page: 1 });
+        }
      
     }
     
